@@ -27,7 +27,7 @@ public class basics {
 			System.out.println("information:");
 			System.out.println( "namn:" + " " + name);
 			System.out.println("Ålder:" + " " + age);
-			System.out.println("adress:" + " " + adress + ", " + postnr);
+			System.out.println("adress:" + " " + adress + ", " + postnr + " " + bostad);
 			
 			System.out.println("telefon:" + " " + nr);
 			
