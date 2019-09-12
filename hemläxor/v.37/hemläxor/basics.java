@@ -23,6 +23,18 @@ public class basics {
 			
 			System.out.println("Vad är ditt telefonnummer?");
 			String nr = input.nextLine();
+			
+			System.out.println("information:");
+			System.out.println( "namn:" + " " + name);
+			System.out.println("Ålder:" + " " + age);
+			System.out.println("adress:" + " " + adress + " " + postnr);
+			
+			System.out.println("telefon:" + " " + nr);
+			
+			
+			
+			
+			
 			 
 
 			
