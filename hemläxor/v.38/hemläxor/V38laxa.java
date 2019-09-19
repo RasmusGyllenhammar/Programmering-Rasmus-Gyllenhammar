@@ -17,11 +17,16 @@ public class V38laxa {
 		for(int i= 0;i<10;i++) { 
 			int nr= input.nextInt();
 			total+=nr;
+			
 			if (lägsta>nr) {
 				lägsta=nr;
 			}
 			if(högsta<nr) {
 				högsta=nr;
+			}
+			if(i==0) {
+				högsta=nr;
+				lägsta=nr;
 			}
 		}
 		
