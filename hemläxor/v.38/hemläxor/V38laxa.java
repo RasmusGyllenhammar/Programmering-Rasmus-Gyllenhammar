@@ -16,7 +16,12 @@ public class V38laxa {
 			total+=nr;
 		}
 		
+		System.out.println("summan:" + total);
+		System.out.println( "medelvärdet:" + total/10);
 		
+		System.out.println("lägsta talet:"  );
+		
+		System.out.println("högsta talet:"  );
 		
 
 }}
