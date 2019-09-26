@@ -13,6 +13,7 @@ public class V39Kattis_abra {
 	 for(int i = 1;i <= x;i++){
 	 
 	  System.out.println(i + "abracadabra");
+	  
 	}
 	}
 }
