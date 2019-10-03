@@ -12,13 +12,21 @@ public class V40_Spavanacc {
 		
 		int timmarsomminuter = (timmar * 60);
 		
-		int A = (timmarsomminuter + minuter - 45);
+		int totalaminuter = (timmarsomminuter + minuter - 45);
 		
-		int res = ( A % 60);
+		if (totalaminuter<0) {
+			totalaminuter+= 24*60;
+		}
+		int res = ( totalaminuter % 60);
 		
-		int restimmar = ((A - res/60));
+		int restimmar = ((totalaminuter - res)/60);
 		
 		System.out.println(restimmar + " " + res);
+		
+		
+		
+		
+		
 		
 		
 		
