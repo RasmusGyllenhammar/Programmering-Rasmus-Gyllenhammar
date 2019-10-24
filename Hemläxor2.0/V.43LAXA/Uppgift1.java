@@ -19,7 +19,7 @@ public class Uppgift1 {
 	public static double volume(double radius) {
 		
 		
-		
+		return (4 * Math.PI * Math.pow(radius, 3)/3);
 		
 		
 	}
