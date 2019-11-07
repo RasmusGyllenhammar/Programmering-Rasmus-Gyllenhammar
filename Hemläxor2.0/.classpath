@@ -5,5 +5,6 @@
 	<classpathentry kind="src" path="V.41"/>
 	<classpathentry kind="src" path="V.43lektionsuppgifter"/>
 	<classpathentry kind="src" path="V.43LAXA"/>
+	<classpathentry kind="src" path="PhysicsLibrary"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

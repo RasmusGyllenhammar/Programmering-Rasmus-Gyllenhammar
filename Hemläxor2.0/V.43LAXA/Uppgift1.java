@@ -36,7 +36,7 @@ public class Uppgift1 {
 	 * med str.charat(i) då den e tom från början får det första tecknet. 
 	 * 
 	 * @param str är där vi skriver in namnet
-	 * @return skickar tillbaka namnet fast omvänt
+	 * @return skickar tillbaka namnet fast omvänt. 
 	 */
 	public static String reverse(String str) {
 		String result = "";
@@ -49,7 +49,23 @@ public class Uppgift1 {
 	 	System.out.println(result);
 		return str; 
 	}
+	/**
+	 * Vad den gör är att man kollar igenom en string och kollar ut efter ett specifikt char, hur många gånger den förekommer i stringen
+	 * @param stringToSearch Det är den stringen man kollar igenom efter char
+	 * @param charToCheckFor Den Bokstaven man letar efter
+	 * @return antalet gånger specifika charen kommer
+	 */
+//	public static int count(String stringToSearch, char charToCheckFor) {
 	
+	//	int charCounter = 0;
+	//	for(int i = 0; i < stringToSearch.length(); i++) {
+	//		if(stringToSearch.charAt(i) == charToCheckFor) {
+	//			charCounter++;
+	//		}
+	//	}
 	
+		
+		//Return charCounter;
+	}
 	
-}
+//}
