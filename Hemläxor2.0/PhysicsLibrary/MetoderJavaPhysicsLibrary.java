@@ -7,6 +7,7 @@ public class MetoderJavaPhysicsLibrary {
 		//anropar på metoden, värdet 50
 		fahrenheitToCelsius(50);
 		
+		kelvinToCelsius(0);
 	}
 
 	/**
@@ -16,6 +17,16 @@ public class MetoderJavaPhysicsLibrary {
 	 */
 	public static double fahrenheitToCelsius(double fahrenheit) {
 		double celsius = (fahrenheit - 32)/1.8;
+		System.out.println(celsius);
+		return celsius;
+	}
+	/**
+	 * Denna metoden omvandlar kelvin till celsius
+	 * @param kelvin är där kelvin värdet ligger i och har värdet 0 i detta fallet
+	 * @return Skickar tillbaka kelvin i celsius
+	 */
+	public static double kelvinToCelsius(double kelvin) {
+		double celsius = kelvin - 273.15;
 		System.out.println(celsius);
 		return celsius;
 	}
