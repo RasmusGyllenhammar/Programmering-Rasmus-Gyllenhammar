@@ -14,7 +14,9 @@ public class MetoderJavaPhysicsLibrary {
 		
 		//fluidPressure(FluidTable.WATER, 10);
 		
-	System.out.println(pressureUnderWater(10));
+		System.out.println(pressureUnderWater(10));
+	
+		System.out.println(kineticEnergy(2,2));
 	}
 
 	/**
@@ -55,5 +57,23 @@ public class MetoderJavaPhysicsLibrary {
 	public static double pressureUnderWater(double deep) {
 		
 		return FluidTable.WATER.density * g * deep;
+	}
+	/**
+	 * räknar ut rörelse energi och då behövs det massan och hastighet
+	 * @param mass  detta är för massan
+	 * @param velocity detta är för hastigheten 
+	 * @return skickar tillbaka rörelseenergin
+	 */
+	public static double kineticEnergy(double mass, double velocity) {
+		     double theKineticEnergy = 0;
+		
+		theKineticEnergy = (mass * Math.pow(velocity, 2)/2);
+		
+		return theKineticEnergy;
+	}
+	public static double potentialEnergy(double mass, double height) {
+		
+		
+		return 0;
 	}
 }
