@@ -23,6 +23,7 @@ public class MetoderJavaPhysicsLibrary {
 	    System.out.println(fallSpeed(2.5));
 	    
 	    System.out.println(delta(1,10));
+	    System.out.println(volumeToMass(FluidTable.WATER,1));
 	}
 
 	/**
@@ -110,5 +111,16 @@ public class MetoderJavaPhysicsLibrary {
 		double diff = 0;
 		diff = last - first;
 		return diff;
+	}
+	/**
+	 * Omvandlar en viss volym av vätska till massa
+	 * @param fluid vätskan vi använder
+	 * @param volume volymen av den vätskan
+	 * @return skickar tillbaka volymen konverterad som massa
+	 */
+	public static double volumeToMass(FluidTable fluid, double volume) {
+		double theVolumeToMass = 0;
+		theVolumeToMass = FluidTable.WATER.density * volume;
+		return theVolumeToMass;
 	}
 }
