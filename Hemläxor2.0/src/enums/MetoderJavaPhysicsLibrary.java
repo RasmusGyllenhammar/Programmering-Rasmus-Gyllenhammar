@@ -12,7 +12,9 @@ public class MetoderJavaPhysicsLibrary {
 		
 		kelvinToCelsius(0);
 		
-		fluidPressure(FluidTable.WATER, 10);
+		//fluidPressure(FluidTable.WATER, 10);
+		
+	System.out.println(pressureUnderWater(10));
 	}
 
 	/**
@@ -42,10 +44,16 @@ public class MetoderJavaPhysicsLibrary {
 	 * @return returnar trycket i vätskan vid det utvalda djupet
 	 */
 	public static double fluidPressure(FluidTable fluid, double deep) {
-		double pressure = g * fluid.density * deep;
-		System.out.println(pressure);
-		return pressure;
-	}
 	
-	public static double 
+		return g * fluid.density * deep;
+	}
+	/**
+	 * Räknar ut vätsketrycket i vatten vid ett visst djup/höjd
+	 * @param deep djupet i vätskan vattnet 
+	 * @return Skickar tillbacka vätsketrycket i vattnet vid ett visst djup
+	 */
+	public static double pressureUnderWater(double deep) {
+		
+		return FluidTable.WATER.density * g * deep;
+	}
 }
