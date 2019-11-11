@@ -21,6 +21,8 @@ public class MetoderJavaPhysicsLibrary {
 		System.out.println(potentialEnergy(2,5));
 		
 	    System.out.println(fallSpeed(2.5));
+	    
+	    System.out.println(delta(1,10));
 	}
 
 	/**
@@ -97,5 +99,16 @@ public class MetoderJavaPhysicsLibrary {
 		theFallSpeed = Math.sqrt(2 * height/g) * g;
 		
 		return theFallSpeed;
+	}
+	/**
+	 * beräknar skillnaden mellan två tal,
+	 * @param first första talet vi skriver in
+	 * @param last andra talet vi skriver in
+	 * @return skickar tillbaka differensen(diff)
+	 */
+	public static double delta(double first, double last) {
+		double diff = 0;
+		diff = last - first;
+		return diff;
 	}
 }
