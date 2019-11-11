@@ -17,6 +17,10 @@ public class MetoderJavaPhysicsLibrary {
 		System.out.println(pressureUnderWater(10));
 	
 		System.out.println(kineticEnergy(2,2));
+		
+		System.out.println(potentialEnergy(2,5));
+		
+	    System.out.println(fallSpeed(2.5));
 	}
 
 	/**
@@ -65,15 +69,33 @@ public class MetoderJavaPhysicsLibrary {
 	 * @return skickar tillbaka rörelseenergin
 	 */
 	public static double kineticEnergy(double mass, double velocity) {
-		     double theKineticEnergy = 0;
+		double theKineticEnergy = 0;
 		
 		theKineticEnergy = (mass * Math.pow(velocity, 2)/2);
 		
 		return theKineticEnergy;
 	}
+	/**
+	 * Metoden räknar ut lägesenergi och man kan sätta in vilka värden man vill
+	 * @param mass variabeln är för massan
+	 * @param height variabeln är för längden/höjden 
+	 * @return skickar tillbaka lägesenergin
+	 */
 	public static double potentialEnergy(double mass, double height) {
 		
+		double thePotentialEnergy = 0;
+		thePotentialEnergy = mass * g * height;
+		return thePotentialEnergy;
+	}
+	/**
+	 * beräknar hur snabbt man faller ner, hur hastigheten blir när man faller. Bortser från luftmotstånd 
+	 * @param height varabieln för höjden
+	 * @return skickar tillbaka hur snabbt man faller ner
+	 */
+	public static double fallSpeed(double height) {
+		double theFallSpeed = 0;
+		theFallSpeed = Math.sqrt(2 * height/g) * g;
 		
-		return 0;
+		return theFallSpeed;
 	}
 }
