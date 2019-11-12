@@ -26,8 +26,9 @@ public class MetoderJavaPhysicsLibrary {
 	   
 	    System.out.println(volumeToMass(FluidTable.WATER,1));
 	
-	  System.out.println(volumeToMass(GasTable.AIR,1));
-	
+	    System.out.println(volumeToMass(GasTable.AIR,1));
+	    
+	    System.out.println(volumeToMass(SolidTable.IRON,1));
 	
 	
 	}      
@@ -78,11 +79,8 @@ public class MetoderJavaPhysicsLibrary {
 	 * @return skickar tillbaka rörelseenergin
 	 */
 	public static double kineticEnergy(double mass, double velocity) {
-		double theKineticEnergy = 0;
 		
-		theKineticEnergy = (mass * Math.pow(velocity, 2)/2);
-		
-		return theKineticEnergy;
+		return (mass * Math.pow(velocity, 2)/2);
 	}
 	/**
 	 * Metoden räknar ut lägesenergi och man kan sätta in vilka värden man vill
@@ -120,7 +118,7 @@ public class MetoderJavaPhysicsLibrary {
 	}
 	/**
 	 * Omvandlar en viss volym av vätska till massa
-	 * @param fluid vätskan vi använder
+	 * @param fluid vätskan vi använder och dens densitet
 	 * @param volume volymen av den vätskan
 	 * @return skickar tillbaka volymen konverterad som massa
 	 */
@@ -130,14 +128,25 @@ public class MetoderJavaPhysicsLibrary {
 		return theVolumeToMass;
 	}
 	/**
-	 * Denna metoden omvandlar 
-	 * @param gas
-	 * @param volume
-	 * @return
+	 * Denna metoden omvandlar volymen av en gas till massa
+	 * @param gas tar in gasen och vilken dens densitet
+	 * @param volume tar in volymen av vätskan
+	 * @return skickar tillbaka massan av gasens volym
 	 */
 	public static double volumeToMass(GasTable gas, double volume) {
 		double theVolumeToMass = 0;
 		theVolumeToMass = GasTable.AIR.density * volume;
 		return theVolumeToMass;
+	}
+	/**
+	 * Denna metod gör om 
+	 * @param solid tar in materian och materians densitet som vi vill konvertera
+	 * @param volume tar in volymen av den materian vi valt
+	 * @return skickar tillbaka materians volym som massa 
+	 */
+	public static double volumeToMass(SolidTable solid, double volume) {
+		
+		
+		return SolidTable.IRON.density * volume;
 	}
 }
