@@ -23,8 +23,14 @@ public class MetoderJavaPhysicsLibrary {
 	    System.out.println(fallSpeed(2.5));
 	    
 	    System.out.println(delta(1,10));
+	   
 	    System.out.println(volumeToMass(FluidTable.WATER,1));
-	}
+	
+	  System.out.println(volumeToMass(GasTable.AIR,1));
+	
+	
+	
+	}      
 
 	/**
 	 *  Metoden omvandlar fahrenheit till celsius
@@ -121,6 +127,17 @@ public class MetoderJavaPhysicsLibrary {
 	public static double volumeToMass(FluidTable fluid, double volume) {
 		double theVolumeToMass = 0;
 		theVolumeToMass = FluidTable.WATER.density * volume;
+		return theVolumeToMass;
+	}
+	/**
+	 * Denna metoden omvandlar 
+	 * @param gas
+	 * @param volume
+	 * @return
+	 */
+	public static double volumeToMass(GasTable gas, double volume) {
+		double theVolumeToMass = 0;
+		theVolumeToMass = GasTable.AIR.density * volume;
 		return theVolumeToMass;
 	}
 }
