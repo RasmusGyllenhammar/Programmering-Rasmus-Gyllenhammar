@@ -31,6 +31,8 @@ public class MetoderJavaPhysicsLibrary {
 	    System.out.println(volumeToMass(SolidTable.IRON,1));
 	    
 	    System.out.println(svtVelocity(10,5));
+	    
+	    System.out.println(heat(SolidTable.IRON, 1, 2));
 	
 	
 	}      
@@ -202,5 +204,17 @@ public class MetoderJavaPhysicsLibrary {
 	public static double power(double work, double time) {
 		
 		return work/time;
+	}
+	/**
+	 * räknar ut energin som krävs för att värma upp ämnet i ett angivet grader
+	 * @param solid ämnet vi tar in här, i detta fallet iron
+	 * @param mass  massan på ämnet vi valt
+	 * @param deltaT  temperatur skillnaden, deltaTemperatur
+	 * @return skickar tillbaka hur mycket energi som behövs för att värma upp ironi detta fallet
+	 */
+	public static double heat(SolidTable solid, double mass, double deltaT) {
+		
+		
+		return SolidTable.IRON.heatCapacity * 1 * 2;
 	}
 }
