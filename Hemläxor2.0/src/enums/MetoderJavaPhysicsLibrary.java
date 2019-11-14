@@ -162,5 +162,15 @@ public class MetoderJavaPhysicsLibrary {
 		
 		return distance/time;
 	}
-
+	/**
+	 * Räknar ut sträckan med hastighet och tid
+	 * @param velocity Hastigheten
+	 * @param time  Tiden
+	 * @return Får sträckan 
+	 */
+	public static double svtDistance(double velocity, double time) {
+		
+		
+		return velocity * time;
+	}
 }
