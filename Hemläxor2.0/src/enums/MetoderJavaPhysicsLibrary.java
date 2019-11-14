@@ -173,4 +173,14 @@ public class MetoderJavaPhysicsLibrary {
 		
 		return velocity * time;
 	}
+	/**
+	 * metoden räknar ut tiden med en hastighet och sträcka
+	 * @param distance  Värdet för sträckan läggs in här
+	 * @param velocity  värdet för hastigheten läggs in här
+	 * @return Man får tiden tillbaka som det tar för att åka en viss sträcka med en speciell hastighet
+	 */
+	double svtTime(double distance, double velocity) {
+		
+		return distance/velocity;
+	}
 }
