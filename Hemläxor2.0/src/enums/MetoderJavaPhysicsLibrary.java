@@ -179,7 +179,7 @@ public class MetoderJavaPhysicsLibrary {
 	 * @param velocity  värdet för hastigheten läggs in här
 	 * @return Man får tiden tillbaka som det tar för att åka en viss sträcka med en speciell hastighet
 	 */
-	double svtTime(double distance, double velocity) {
+	public static double svtTime(double distance, double velocity) {
 		
 		return distance/velocity;
 	}
@@ -189,8 +189,18 @@ public class MetoderJavaPhysicsLibrary {
 	 * @param distance   sträckan som objektet flyttats i
 	 * @return skickar tillbaka hur stort arbete man gjort beroende på force och distance
 	 */
-	double work(double force, double distance) {
+	public static double work(double force, double distance) {
 		
 		return force * distance;
+	}
+	/**
+	 * räknar ut effekt(watt) med arbete och tid värden
+	 * @param work sätter in värdet för arbetet
+	 * @param time sätter in värdet för tiden
+	 * @return skickar tillbaks antal watt
+	 */
+	public static double power(double work, double time) {
+		
+		return work/time;
 	}
 }
