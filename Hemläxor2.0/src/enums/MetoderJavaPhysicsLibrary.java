@@ -29,6 +29,8 @@ public class MetoderJavaPhysicsLibrary {
 	    System.out.println(volumeToMass(GasTable.AIR,1));
 	    
 	    System.out.println(volumeToMass(SolidTable.IRON,1));
+	    
+	    System.out.println(svtVelocity(10,5));
 	
 	
 	}      
@@ -149,4 +151,16 @@ public class MetoderJavaPhysicsLibrary {
 		
 		return SolidTable.IRON.density * volume;
 	}
+	/**
+	 * Räknar ut medelhastigheten med hjälp av sträcka och tid
+	 * @param distance Sträckan som vi tar in här
+	 * @param time Tiden som vi tar in
+	 * @return skickar medelhastigheten tillbaka
+	 */
+	public static double svtVelocity(double distance, double time) {
+		
+		
+		return distance/time;
+	}
+
 }
