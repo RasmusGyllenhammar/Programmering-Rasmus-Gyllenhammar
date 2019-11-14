@@ -183,4 +183,14 @@ public class MetoderJavaPhysicsLibrary {
 		
 		return distance/velocity;
 	}
+	/**
+	 * räknar ut arbete med kraft och en sträcka
+	 * @param force kraften(F) som vi tar in
+	 * @param distance   sträckan som objektet flyttats i
+	 * @return skickar tillbaka hur stort arbete man gjort beroende på force och distance
+	 */
+	double work(double force, double distance) {
+		
+		return force * distance;
+	}
 }
