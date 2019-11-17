@@ -33,6 +33,10 @@ public class MetoderJavaPhysicsLibrary {
 	    System.out.println(svtVelocity(10,5));
 	    
 	    System.out.println(heat(SolidTable.IRON, 1, 2));
+	    
+	   System.out.println(heat(FluidTable.WATER, 1 , 1));
+	   
+	   System.out.println(heat(GasTable.AIR, 1, 1));
 	
 	
 	}      
@@ -210,11 +214,33 @@ public class MetoderJavaPhysicsLibrary {
 	 * @param solid ämnet vi tar in här, i detta fallet iron
 	 * @param mass  massan på ämnet vi valt
 	 * @param deltaT  temperatur skillnaden, deltaTemperatur
-	 * @return skickar tillbaka hur mycket energi som behövs för att värma upp ironi detta fallet
+	 * @return skickar tillbaka hur mycket energi som behövs för att värma upp iron i detta fallet
 	 */
 	public static double heat(SolidTable solid, double mass, double deltaT) {
 		
 		
 		return SolidTable.IRON.heatCapacity * 1 * 2;
+	}
+	/**
+	 * 
+	 * @param fluid ämnet vi tar in, en vätska 
+	 * @param mass  massan av vätskan
+	 * @param deltaT  temperatur skillnaden
+	 * @return Skickar tillbaka hur mycket energi det behövs för att värma upp vätskan i antal massa 
+	 */
+	public static double  heat(FluidTable fluid, double mass, double deltaT) {
+		
+		return FluidTable.WATER.heatCapacity * 1 * 10;
+	}
+	/**
+	 * 
+	 * @param gas ämnet vi tar in, en gas i detta fallet, t.ex air
+	 * @param mass Massan av den specifika gasen
+	 * @param deltaT temperatur skillnaden
+	 * @return Skickar tillbaka hur mycket energi det behövs för att värma upp en gas med en viss massa
+	 */
+	public static double heat(GasTable gas, double mass, double deltaT) {
+		
+		return GasTable.AIR.heatCapacity * 1 * 1;
 	}
 }
