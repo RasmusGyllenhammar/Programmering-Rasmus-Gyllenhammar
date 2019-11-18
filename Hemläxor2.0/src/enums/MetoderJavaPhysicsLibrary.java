@@ -44,7 +44,9 @@ public class MetoderJavaPhysicsLibrary {
 	   
 	   System.out.println(heat(GasTable.AIR, 1, 1));
 	   System.out.println(G);
-	
+	  
+	   //svaren till frågorna
+	   System.out.println(volumeToMass(SolidTable.IRON, 0.06));
 	}      
 
 	/**
