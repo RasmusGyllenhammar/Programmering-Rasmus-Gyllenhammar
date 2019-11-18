@@ -5,7 +5,8 @@ public enum GasTable{
 	AIR(1.29, 1.01), 
 	O2(1.43, 0.92), 
 	OXYGEN(1.43, 0.92),
-	CarbonDioxide(1.98,0.7)
+	CarbonDioxide(1.98,0.76),
+	Helium(0.1785, 5.2)
 	;
 
 	double density;
