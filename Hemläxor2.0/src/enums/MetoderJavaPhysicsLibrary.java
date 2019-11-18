@@ -3,7 +3,13 @@ import java.util.Scanner;
 
 public class MetoderJavaPhysicsLibrary {
 
-	static double g = 9.82;
+	static double g = 9.82;	//Tyngaccelerationen
+	static double G = 6.674 * Math.pow(10, -11); //Gravitations konstanten
+	static double c = 2.99792458 * Math.pow(10, 8); //ljusets hastighet i vakuum
+	static double R = 8.3145; //Allmänna gaskonstanten
+	static double p_0 = 1013; //Lufttrcket vid havsytan
+	
+	
 	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
@@ -37,7 +43,7 @@ public class MetoderJavaPhysicsLibrary {
 	   System.out.println(heat(FluidTable.WATER, 1 , 1));
 	   
 	   System.out.println(heat(GasTable.AIR, 1, 1));
-	
+	   System.out.println(G);
 	
 	}      
 
