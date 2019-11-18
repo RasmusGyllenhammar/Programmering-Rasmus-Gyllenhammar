@@ -243,4 +243,13 @@ public class MetoderJavaPhysicsLibrary {
 		
 		return GasTable.AIR.heatCapacity * 1 * 1;
 	}
+	/**
+	 * räknar ut hur högt ett föremål  med en viss hastighet uppåt kommer
+	 * @param velocity värdet för hastigheten som vi tar in
+	 * @return skickar tillbaka höjden
+	 */
+	public static double velocityToHeight(double velocity) {
+		
+		return (Math.pow(Math.sin(1.570796), 2) * Math.pow(velocity, 2)) / (2 * g);
+	}
 }
