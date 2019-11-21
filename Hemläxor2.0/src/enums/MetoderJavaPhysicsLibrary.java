@@ -291,5 +291,13 @@ public class MetoderJavaPhysicsLibrary {
 		
 		return kilometresPerSecond/3.6;
 	}
-	
+	/**
+	 * Gör om m/s till Km/h
+	 * @param MetresPerSecond hastigheten i m/s vi vill göra om till km/h
+	 * @return skickar tillbaka m/s i km/h
+	 */
+	public static double metresPerSecondToKilometresPerHour(double MetresPerSecond) {
+		
+		return MetresPerSecond * 3.6;
+	}
 }
