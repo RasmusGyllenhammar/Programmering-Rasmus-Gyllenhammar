@@ -60,7 +60,9 @@ public class MetoderJavaPhysicsLibrary {
 	   
 	   //fråga 5
 	  System.out.println(velocityToHeight(16.6666666667));
-	   
+	  
+	  //fråga 6
+	 System.out.println(calculateEffectForAcceleration( 735, 27.7777777778, 4.8 ));
 	   
 	}      
 
@@ -267,4 +269,27 @@ public class MetoderJavaPhysicsLibrary {
 		
 		return (Math.pow(Math.sin(1.570796), 2) * Math.pow(velocity, 2)) / (2 * g);
 	}
+	
+	//till uppgift 6
+	/**
+	 * räknar ut effekt med hjälp av att räkna ut rörelse energi
+	 * @param mass indata för massan 
+	 * @param maxVelocity tar in max hastigheten
+	 * @param time tar in tiden för det hela
+	 * @return skickar tillbaka hur stor effekt det blir
+	 */
+	public static double calculateEffectForAcceleration(double mass, double maxVelocity, double time ) {
+		
+		return mass* maxVelocity * maxVelocity/2./time;
+	}
+	/**
+	 * Konverterar km/h till m/s
+	 * @param kilometresPerSecond värdet som vi vill konvertera km/h till m/s
+	 * @return skickar tillbaka km/h i m/s
+	 */
+	public static double kilometresPerHourToMeterPerSecond(double kilometresPerSecond) {
+		
+		return kilometresPerSecond/3.6;
+	}
+	
 }
