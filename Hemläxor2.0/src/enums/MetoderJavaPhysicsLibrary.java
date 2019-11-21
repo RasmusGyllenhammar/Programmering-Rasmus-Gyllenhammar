@@ -46,7 +46,22 @@ public class MetoderJavaPhysicsLibrary {
 	   System.out.println(G);
 	  
 	   //svaren till frågorna
+	   //fråga 1
 	   System.out.println(volumeToMass(SolidTable.IRON, 0.06));
+	   
+	   //fråga 2
+	   System.out.println(svtDistance(2.7, 3000));
+	   
+	  //fråga 3
+	   System.out.println(heat(FluidTable.WATER, 4.0, 22.0));
+	   
+	   //fråga 4
+	   System.out.println(pressureUnderWater(75));
+	   
+	   //fråga 5
+	  System.out.println(velocityToHeight(16.6666666667));
+	   
+	   
 	}      
 
 	/**
@@ -55,9 +70,8 @@ public class MetoderJavaPhysicsLibrary {
 	 * @return Skickar tillbaka fahrehiet i celsius
 	 */
 	public static double fahrenheitToCelsius(double fahrenheit) {
-		double celsius = (fahrenheit - 32)/1.8;
-		System.out.println(celsius);
-		return celsius;
+		
+		return (fahrenheit - 32)/1.8;
 	}
 	/**
 	 * Denna metoden omvandlar kelvin till celsius
@@ -65,9 +79,8 @@ public class MetoderJavaPhysicsLibrary {
 	 * @return Skickar tillbaka kelvin i celsius
 	 */
 	public static double kelvinToCelsius(double kelvin) {
-		double celsius = kelvin - 273.15;
-		System.out.println(celsius);
-		return celsius;
+		
+		return kelvin - 273.15;
 	}
 	/**
 	 * Räknar ut vätsketrycket i en vätska vid ett visst djup
@@ -106,9 +119,7 @@ public class MetoderJavaPhysicsLibrary {
 	 */
 	public static double potentialEnergy(double mass, double height) {
 		
-		double thePotentialEnergy = 0;
-		thePotentialEnergy = mass * g * height;
-		return thePotentialEnergy;
+		return mass * g * height;
 	}
 	/**
 	 * beräknar hur snabbt man faller ner, hur hastigheten blir när man faller. Bortser från luftmotstånd 
@@ -116,10 +127,8 @@ public class MetoderJavaPhysicsLibrary {
 	 * @return skickar tillbaka hur snabbt man faller ner
 	 */
 	public static double fallSpeed(double height) {
-		double theFallSpeed = 0;
-		theFallSpeed = Math.sqrt(2 * height/g) * g;
 		
-		return theFallSpeed;
+		return Math.sqrt(2 * height/g) * g;
 	}
 	/**
 	 * beräknar skillnaden mellan två tal,
@@ -128,9 +137,8 @@ public class MetoderJavaPhysicsLibrary {
 	 * @return skickar tillbaka differensen(diff)
 	 */
 	public static double delta(double first, double last) {
-		double diff = 0;
-		diff = last - first;
-		return diff;
+		
+		return last - first;
 	}
 	/**
 	 * Omvandlar en viss volym av vätska till massa
@@ -139,9 +147,8 @@ public class MetoderJavaPhysicsLibrary {
 	 * @return skickar tillbaka volymen konverterad som massa
 	 */
 	public static double volumeToMass(FluidTable fluid, double volume) {
-		double theVolumeToMass = 0;
-		theVolumeToMass = FluidTable.WATER.density * volume;
-		return theVolumeToMass;
+		
+		return fluid.density * volume;
 	}
 	/**
 	 * Denna metoden omvandlar volymen av en gas till massa
@@ -150,9 +157,9 @@ public class MetoderJavaPhysicsLibrary {
 	 * @return skickar tillbaka massan av gasens volym
 	 */
 	public static double volumeToMass(GasTable gas, double volume) {
-		double theVolumeToMass = 0;
-		theVolumeToMass = GasTable.AIR.density * volume;
-		return theVolumeToMass;
+		
+		
+		return gas.density * volume;
 	}
 	/**
 	 * Denna metod gör om 
@@ -163,7 +170,7 @@ public class MetoderJavaPhysicsLibrary {
 	public static double volumeToMass(SolidTable solid, double volume) {
 		
 		
-		return SolidTable.IRON.density * volume;
+		return solid.density * volume;
 	}
 	/**
 	 * Räknar ut medelhastigheten med hjälp av sträcka och tid
@@ -227,10 +234,10 @@ public class MetoderJavaPhysicsLibrary {
 	public static double heat(SolidTable solid, double mass, double deltaT) {
 		
 		
-		return SolidTable.IRON.heatCapacity * 1 * 2;
+		return solid.heatCapacity * 1 * 2;
 	}
 	/**
-	 * 
+	 * Räknar ut hur mycket energi det behövs för att värma upp vätskan med en viss massa
 	 * @param fluid ämnet vi tar in, en vätska 
 	 * @param mass  massan av vätskan
 	 * @param deltaT  temperatur skillnaden
@@ -238,7 +245,7 @@ public class MetoderJavaPhysicsLibrary {
 	 */
 	public static double  heat(FluidTable fluid, double mass, double deltaT) {
 		
-		return FluidTable.WATER.heatCapacity * 1 * 10;
+		return fluid.heatCapacity * 1 * 10;
 	}
 	/**
 	 * 
@@ -249,7 +256,7 @@ public class MetoderJavaPhysicsLibrary {
 	 */
 	public static double heat(GasTable gas, double mass, double deltaT) {
 		
-		return GasTable.AIR.heatCapacity * 1 * 1;
+		return gas.heatCapacity * 1 * 1;
 	}
 	/**
 	 * räknar ut hur högt ett föremål  med en viss hastighet uppåt kommer
