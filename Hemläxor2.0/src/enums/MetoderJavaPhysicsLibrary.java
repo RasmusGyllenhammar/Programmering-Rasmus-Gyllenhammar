@@ -62,7 +62,11 @@ public class MetoderJavaPhysicsLibrary {
 	  System.out.println(velocityToHeight(16.6666666667));
 	  
 	  //fråga 6
-	 System.out.println(calculateEffectForAcceleration( 735, 27.7777777778, 4.8 ));
+	  System.out.println(calculatePowerForAcceleration( 735, 27.7777777778, 4.8 ));
+	  
+	  //fråga 7
+	  System.out.println(antalStudsar(12));
+	  
 	   
 	}      
 
@@ -270,7 +274,7 @@ public class MetoderJavaPhysicsLibrary {
 		return (Math.pow(Math.sin(1.570796), 2) * Math.pow(velocity, 2)) / (2 * g);
 	}
 	
-	//till uppgift 6
+	//till uppgift 6 HÄR STARTAR EGNA METODER DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
 	/**
 	 * räknar ut effekt med hjälp av att räkna ut rörelse energi
 	 * @param mass indata för massan 
@@ -278,9 +282,26 @@ public class MetoderJavaPhysicsLibrary {
 	 * @param time tar in tiden för det hela
 	 * @return skickar tillbaka hur stor effekt det blir
 	 */
-	public static double calculateEffectForAcceleration(double mass, double maxVelocity, double time ) {
+	public static double calculatePowerForAcceleration(double mass, double maxVelocity, double time ) {
 		
 		return mass* maxVelocity * maxVelocity/2./time;
+	}
+	/**
+	 * räknar ut antalet studsar den gör efter att förlroa 1% av sin energi efter varje studs
+	 * @param height höjden i meter
+	 * @return skickar tillbaka antal studsar
+	 */
+	public static double antalStudsar(double height) {
+		double finalKineticEnergy = height * g;
+		int bounceCounter = 0;
+		double i = 12;
+		while(i > 0.5){
+			finalKineticEnergy *=0.99;
+			i = finalKineticEnergy/g;
+			
+			bounceCounter ++;	
+		}	
+		return bounceCounter;
 	}
 	/**
 	 * Konverterar km/h till m/s
