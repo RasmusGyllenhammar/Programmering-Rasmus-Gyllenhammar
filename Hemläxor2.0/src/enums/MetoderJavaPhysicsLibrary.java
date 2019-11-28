@@ -13,38 +13,7 @@ public class MetoderJavaPhysicsLibrary {
 	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		//anropar på metoden, värdet 50
-		fahrenheitToCelsius(50);
 		
-		kelvinToCelsius(0);
-		
-		//fluidPressure(FluidTable.WATER, 10);
-		
-		System.out.println(pressureUnderWater(10));
-	
-		System.out.println(kineticEnergy(2,2));
-		
-		System.out.println(potentialEnergy(2,5));
-		
-	    System.out.println(fallSpeed(2.5));
-	    
-	    System.out.println(delta(1,10));
-	   
-	    System.out.println(volumeToMass(FluidTable.WATER,1));
-	
-	    System.out.println(volumeToMass(GasTable.AIR,1));
-	    
-	    System.out.println(volumeToMass(SolidTable.IRON,1));
-	    
-	    System.out.println(svtVelocity(10,5));
-	    
-	    System.out.println(heat(SolidTable.IRON, 1, 2));
-	    
-	   System.out.println(heat(FluidTable.WATER, 1 , 1));
-	   
-	   System.out.println(heat(GasTable.AIR, 1, 1));
-	   System.out.println(G);
-	  
 	   //svaren till frågorna
 	   //fråga 1
 	   System.out.println(volumeToMass(SolidTable.IRON, 0.06));
@@ -53,7 +22,7 @@ public class MetoderJavaPhysicsLibrary {
 	   System.out.println(svtDistance(2.7, 3000));
 	   
 	  //fråga 3
-	   System.out.println(heat(FluidTable.WATER, 4.0, 22.0));
+	   System.out.println(heat(FluidTable.WATER, 4.0, 78));
 	   
 	   //fråga 4
 	   System.out.println(pressureUnderWater(75));
@@ -67,7 +36,11 @@ public class MetoderJavaPhysicsLibrary {
 	  //fråga 7
 	  System.out.println(antalStudsar(12));
 	  
-	   
+	  //fråga 8, hur mycket är 90km/h i m/s?
+	  System.out.println(kilometresPerHourToMeterPerSecond(90));
+	  
+	  //fråga 9, en nalle faller med 5.6m/s hur mycket är det i km/h?
+	  System.out.println(metresPerSecondToKilometresPerHour(5.6));
 	}      
 
 	/**
@@ -275,7 +248,7 @@ public class MetoderJavaPhysicsLibrary {
 	}
 	
 	//till uppgift 6 HÄR STARTAR EGNA METODER DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
-	/**
+	/** Metod 21
 	 * räknar ut effekt med hjälp av att räkna ut rörelse energi
 	 * @param mass indata för massan 
 	 * @param maxVelocity tar in max hastigheten
@@ -287,6 +260,8 @@ public class MetoderJavaPhysicsLibrary {
 		return mass* maxVelocity * maxVelocity/2./time;
 	}
 	/**
+	 * Metod 22
+	 * FRÅGA 7
 	 * räknar ut antalet studsar den gör efter att förlroa 1% av sin energi efter varje studs
 	 * @param height höjden i meter
 	 * @return skickar tillbaka antal studsar
@@ -304,6 +279,8 @@ public class MetoderJavaPhysicsLibrary {
 		return bounceCounter;
 	}
 	/**
+	 * metod 23
+	 * FRÅGA 8(EGEN FRÅGA)
 	 * Konverterar km/h till m/s
 	 * @param kilometresPerSecond värdet som vi vill konvertera km/h till m/s
 	 * @return skickar tillbaka km/h i m/s
@@ -313,6 +290,8 @@ public class MetoderJavaPhysicsLibrary {
 		return kilometresPerSecond/3.6;
 	}
 	/**
+	 * metod 24
+	 * FRÅGA 9(EGEN FRÅGA)
 	 * Gör om m/s till Km/h
 	 * @param MetresPerSecond hastigheten i m/s vi vill göra om till km/h
 	 * @return skickar tillbaka m/s i km/h
@@ -321,4 +300,16 @@ public class MetoderJavaPhysicsLibrary {
 		
 		return MetresPerSecond * 3.6;
 	}
+	/**
+	 * metod 25
+	 * Räknar ut kraften för ett föremål i fart.
+	 * @param mass föremålets vikt
+	 * @param acceleration föremålets acceleration
+	 * @return skickar tillbaka kraften
+	 */
+	public static double calculateForce(double mass, double acceleration){
+		
+		return mass * acceleration;
+	}
+	
 }
