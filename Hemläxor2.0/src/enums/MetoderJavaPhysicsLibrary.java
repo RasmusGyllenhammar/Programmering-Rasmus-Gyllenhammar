@@ -318,7 +318,7 @@ public class MetoderJavaPhysicsLibrary {
 	 * @param mass föremålets massa
 	 * @return skickar tillbaka accelerationen
 	 */
-	public static double CalculateAcceleration(double force, double mass) {
+	public static double CalculateAccelerationWithForceAndMass(double force, double mass) {
 		
 		return force/mass;
 	}
@@ -343,5 +343,16 @@ public class MetoderJavaPhysicsLibrary {
 	public static double calculateDensity(double mass, double volume) {
 		
 		return mass/volume;
+	}
+	/**
+	 * metod 29
+	 * räknar ut accelerationen med hastighet och tid
+	 * @param velocity indata för hastigheten
+	 * @param time  indata för tiden
+	 * @return
+	 */
+	public static double calculateAccelerationWithVelocityAndTime(double velocity, double time) {
+		
+		return velocity/time;
 	}
 }
