@@ -312,6 +312,7 @@ public class MetoderJavaPhysicsLibrary {
 		return mass * acceleration;
 	}
 	/**
+	 * metod 26
 	 * räknar ut accelerationen med hjälp av kraft och massan
 	 * @param force kraften föremålet har 
 	 * @param mass föremålets massa
@@ -320,5 +321,16 @@ public class MetoderJavaPhysicsLibrary {
 	public static double CalculateAcceleration(double force, double mass) {
 		
 		return force/mass;
+	}
+	/**
+	 * metod 27
+	 * räknar ut impulsen på ett objekt som utsätts för en konstant kraft under tiden delta_T
+	 * @param force kraften den utsätts för 
+	 * @param delta_T tiden då den utsätts för kraften
+	 * @return skickar tillbaka impulsen
+	 */
+	public static double calculateImpulse(double force, double delta_T) {
+		
+		return force * delta_T;
 	}
 }
