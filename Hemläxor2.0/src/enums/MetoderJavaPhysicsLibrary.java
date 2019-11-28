@@ -296,9 +296,9 @@ public class MetoderJavaPhysicsLibrary {
 	 * @param MetresPerSecond hastigheten i m/s vi vill göra om till km/h
 	 * @return skickar tillbaka m/s i km/h
 	 */
-	public static double metresPerSecondToKilometresPerHour(double MetresPerSecond) {
+	public static double metresPerSecondToKilometresPerHour(double metresPerSecond) {
 		
-		return MetresPerSecond * 3.6;
+		return metresPerSecond * 3.6;
 	}
 	/**
 	 * metod 25
@@ -332,5 +332,16 @@ public class MetoderJavaPhysicsLibrary {
 	public static double calculateImpulse(double force, double delta_T) {
 		
 		return force * delta_T;
+	}
+	/**
+	 * metod 28
+	 * räknar ut densiteten med hjälp av massan och volymen
+	 * @param mass massan för objektet
+	 * @param volume volymen för objektet
+	 * @return skickar tillbaka densiteten
+	 */
+	public static double calculateDensity(double mass, double volume) {
+		
+		return mass/volume;
 	}
 }
