@@ -311,5 +311,14 @@ public class MetoderJavaPhysicsLibrary {
 		
 		return mass * acceleration;
 	}
-	
+	/**
+	 * räknar ut accelerationen med hjälp av kraft och massan
+	 * @param force kraften föremålet har 
+	 * @param mass föremålets massa
+	 * @return skickar tillbaka accelerationen
+	 */
+	public static double CalculateAcceleration(double force, double mass) {
+		
+		return force/mass;
+	}
 }
