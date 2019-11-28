@@ -262,7 +262,7 @@ public class MetoderJavaPhysicsLibrary {
 	/**
 	 * Metod 22
 	 * FRÅGA 7
-	 * räknar ut antalet studsar den gör efter att förlroa 1% av sin energi efter varje studs
+	 * räknar ut antalet studsar den gör efter att förloraa 1% av sin energi efter varje studs
 	 * @param height höjden i meter
 	 * @return skickar tillbaka antal studsar
 	 */
@@ -354,5 +354,16 @@ public class MetoderJavaPhysicsLibrary {
 	public static double calculateAccelerationWithVelocityAndTime(double velocity, double time) {
 		
 		return velocity/time;
+	}
+	/**
+	 * metod 30
+	 * räknar ut volymen av en pyramid med basen och längden
+	 * @param base pyramidens bas längd
+	 * @param height  pyramidens höjd längd
+	 * @return skickar tillbaka volymen av en pyramid
+	 */
+	public static double volumeOfPyramid(double base, double height) {
+		
+		return (base * height)/3;
 	}
 }
