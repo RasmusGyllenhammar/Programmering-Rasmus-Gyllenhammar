@@ -19,7 +19,7 @@ public class Länder {
 
 
         }
-        System.out.println("Total : " + points);
+        System.out.println("Antal rätt : " + points);
 
 
         //Gör en kod som ber användaren att lista alla länder i norden och sen kolla om personen har fått alla rätt
