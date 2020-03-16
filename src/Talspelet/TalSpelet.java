@@ -1,5 +1,6 @@
 package Talspelet;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TalSpelet {
@@ -7,7 +8,7 @@ public class TalSpelet {
    protected static int limitedAmountOfGuesses;
 
    public static void main(String[] args) {
-       System.out.println("test");
+
        chooseDifficulty();
     checkIfGuessIsRight();
 
@@ -17,7 +18,9 @@ public class TalSpelet {
      *
      */
     public static void chooseDifficulty(){
-        System.out.println("Welcome summoner, select a difficulty between 1(easy), 2(medium), 3(hard)");
+        System.out.println("what is your name");
+        String name = input.nextLine();
+        System.out.println("Welcome" + name + "select a difficulty between 1(easy), 2(medium), 3(hard)");
 
         int difficulty = input.nextInt();
 
@@ -78,6 +81,19 @@ public class TalSpelet {
             case 2:
                 System.out.println("Okay, dont play then :(");
         }
+    }
+    public static int errorSearchingFromInput(){
+       int inputFromPlayer;
+
+       try{
+           inputFromPlayer = input.nextInt();
+       }catch (InputMismatchException e) {
+           System.out.println("THIS IS THE WRONG INPUT, TYPE AN INTEGER TO MOVE ON");
+           input.nextLine();
+           return errorSearchingFromInput();
+       }
+
+        return inputFromPlayer;
     }
 
 }
