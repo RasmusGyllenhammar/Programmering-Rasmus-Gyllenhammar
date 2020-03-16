@@ -9,6 +9,7 @@ public class TalSpelet {
    public static void main(String[] args) {
 
     chooseDifficulty();
+    checkIfGuessIsRight();
 
     }
 
@@ -36,4 +37,27 @@ public class TalSpelet {
 
 
     }
+    public static void checkIfGuessIsRight(){
+        System.out.println("Now try to guess the number between 1 - 100");
+        boolean win = false;
+
+        int guessCounter = 0;
+        int correctNumber = (int)(100 * Math.random());
+
+        while(win == false) {
+            int guess = input.nextInt();
+            guessCounter++;
+
+            if(guess == correctNumber && guessCounter < limitedAmountOfGuesses) {
+                win = true;
+                System.out.println("WOW YOU WON");
+            } else if(guess < correctNumber) {
+                System.out.println("Seems like your guess is too low, try a greater number");
+            } else if(guess > correctNumber) {
+                System.out.println("Seems like your guess is too high, try a lower number");
+            }
+        }
+    }
+
+
 }
