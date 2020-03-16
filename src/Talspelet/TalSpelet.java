@@ -49,8 +49,8 @@ public class TalSpelet {
         System.out.println("Now try to guess the number between 1 - 100");
         boolean win = false;
         //test
-        int guessCounter = 0;
-        int correctNumber = (int)(100 * Math.random());
+        int guessCounter = 0;  //Håller koll på hur många gissningar man gör
+        int correctNumber = (int)(100 * Math.random()); // randomizer en int mellan intervallet 1-100
 
         while(win == false) {
             int guess = errorSearchingFromInput();
@@ -58,7 +58,7 @@ public class TalSpelet {
 
             if(guess == correctNumber && guessCounter < limitedAmountOfGuesses) {
                 win = true;
-                System.out.println("WOW YOU WON");
+                System.out.println("WOW YOU WON, it took you" + "" + guessCounter + " tries");
                 rematchOrNot();
             } else if(guess < correctNumber) {
                 System.out.println("Seems like your guess is too low, try a greater number");
@@ -66,7 +66,8 @@ public class TalSpelet {
                 System.out.println("Seems like your guess is too high, try a lower number");
             }
             if(guessCounter >= limitedAmountOfGuesses){
-                System.out.println("You are out of guesses, you lost");
+                System.out.println("You are out of guesses, you lost, the answer was " + correctNumber);
+
                 rematchOrNot();
             }
         }
