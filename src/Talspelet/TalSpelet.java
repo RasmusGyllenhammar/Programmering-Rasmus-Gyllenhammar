@@ -10,7 +10,6 @@ public class TalSpelet {
    public static void main(String[] args) {
 
        chooseDifficulty();
-    checkIfGuessIsRight();
 
     }
 
@@ -28,16 +27,20 @@ public class TalSpelet {
             case 1:
                 System.out.println("You have chosen easy! You will have 10 tries to guess the correct number");
                 limitedAmountOfGuesses = 10;
+                checkIfGuessIsRight();
                 break;
 
             case 2:
                 System.out.println("You have chosen easy! You will have 7 tries to guess the correct number\"");
                 limitedAmountOfGuesses = 7;
+                checkIfGuessIsRight();
                 break;
 
             case 3:
                 System.out.println("You have chosen easy! You will have 4 tries to guess the correct number\"");
                 limitedAmountOfGuesses = 4;
+                checkIfGuessIsRight();
+                break;
         }
 
 
