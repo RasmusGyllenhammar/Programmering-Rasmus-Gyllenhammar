@@ -20,7 +20,7 @@ public class TalSpelet {
 
         System.out.println("Welcome Summoner select a difficulty between 1(easy), 2(medium), 3(hard)");
 
-        int difficulty = input.nextInt();
+        int difficulty = errorSearchingFromInput();
 
         switch(difficulty){
             case 1:
@@ -53,7 +53,7 @@ public class TalSpelet {
         int correctNumber = (int)(100 * Math.random());
 
         while(win == false) {
-            int guess = input.nextInt();
+            int guess = errorSearchingFromInput();
             guessCounter++;
 
             if(guess == correctNumber && guessCounter < limitedAmountOfGuesses) {
@@ -73,7 +73,7 @@ public class TalSpelet {
     }
     public static void rematchOrNot() {
         System.out.println("Do you want to play again? If so, press 1. If not press 2");
-        int playAgain = input.nextInt();
+        int playAgain = errorSearchingFromInput();
 
         switch (playAgain) {
             case 1:
