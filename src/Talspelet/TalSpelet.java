@@ -17,9 +17,8 @@ public class TalSpelet {
      *
      */
     public static void chooseDifficulty(){
-        System.out.println("what is your name");
-        String name = input.nextLine();
-        System.out.println("Welcome" + name + "select a difficulty between 1(easy), 2(medium), 3(hard)");
+
+        System.out.println("Welcome Summoner select a difficulty between 1(easy), 2(medium), 3(hard)");
 
         int difficulty = input.nextInt();
 
@@ -85,6 +84,12 @@ public class TalSpelet {
                 System.out.println("Okay, dont play then :(");
         }
     }
+
+    /**
+     * Try catch, metoden kollar om vi får in den typen av värde vi vill ha vilket i detta fallet är det en int och -
+     * om vi inte får det så kommer den säga till vilken typ vi vill ha och göra det tills användaren skriver in rätt typ
+     * @return den skickar tillbaka en int = input.nextInt(); för att kunna lösa i varje sitaution användaren får skriva så hen inte gör fel
+     */
     public static int errorSearchingFromInput(){
        int inputFromPlayer;
 
