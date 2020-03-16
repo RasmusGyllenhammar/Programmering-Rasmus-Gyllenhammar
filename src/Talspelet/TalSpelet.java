@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class TalSpelet {
    static Scanner input = new Scanner(System.in);
-   protected static int limitedAmountOfGuesses;
+   protected static int limitedAmountOfGuesses; //Antal gissningar man har på sig
 
    public static void main(String[] args) {
 
@@ -30,13 +30,13 @@ public class TalSpelet {
                 break;
 
             case 2:
-                System.out.println("You have chosen easy! You will have 7 tries to guess the correct number\"");
+                System.out.println("You have chosen medium! You will have 7 tries to guess the correct number");
                 limitedAmountOfGuesses = 7;
                 checkIfGuessIsRight();
                 break;
 
             case 3:
-                System.out.println("You have chosen easy! You will have 4 tries to guess the correct number\"");
+                System.out.println("You have chosen hard! You will have 4 tries to guess the correct number");
                 limitedAmountOfGuesses = 4;
                 checkIfGuessIsRight();
                 break;
@@ -71,6 +71,10 @@ public class TalSpelet {
             }
         }
     }
+
+    /**
+     * Kollar på slutet av spelet om man vill köra igen eller inte. Om man vill köra igen så kommer anropa choosingDifficulty
+     */
     public static void rematchOrNot() {
         System.out.println("Do you want to play again? If so, press 1. If not press 2");
         int playAgain = errorSearchingFromInput();
@@ -78,7 +82,7 @@ public class TalSpelet {
         switch (playAgain) {
             case 1:
                 chooseDifficulty();
-                checkIfGuessIsRight();
+
 
             case 2:
                 System.out.println("Okay, dont play then :(");
