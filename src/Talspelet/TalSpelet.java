@@ -14,11 +14,13 @@ public class TalSpelet {
     }
 
     /**
+     *Metoden kollar vilken level man vill spela på, med hjälp av switch så man kan trycka på vilklen svårighetsgrad. Det gör att man kommer till-
+     * nästa metod som sätter igång självaste spelet
      *
      */
     public static void chooseDifficulty(){
 
-        System.out.println("Welcome Summoner select a difficulty between 1(easy), 2(medium), 3(hard)");
+        System.out.println("Welcome Summoner to Talspelet, you will have to guess the correct number to win and you will decide how hard it will be, please select a difficulty between 1(easy), 2(medium), 3(hard)");
 
         int difficulty = errorSearchingFromInput();
 
@@ -45,10 +47,15 @@ public class TalSpelet {
 
 
     }
+
+    /**
+     * Metoden sätter igång spelet och man får börja gissa, kollar om gissningen är rätt/fel och ger ledtrådar om det är högre/lägre-
+     * När man har vunnit eller har slut på gissnignar kallar den på nästa metod nedanför och kollar om man vill spela igen
+     */
     public static void checkIfGuessIsRight(){
         System.out.println("Now try to guess the number between 1 - 100");
-        boolean win = false;
-        //test
+        boolean win = false; //Detta är för att kunna veta när man har gissat rätt sen
+
         int guessCounter = 0;  //Håller koll på hur många gissningar man gör
         int correctNumber = (int)(100 * Math.random()); // randomizer en int mellan intervallet 1-100
 
@@ -58,7 +65,7 @@ public class TalSpelet {
 
             if(guess == correctNumber && guessCounter < limitedAmountOfGuesses) {
                 win = true;
-                System.out.println("WOW YOU WON, it took you" + "" + guessCounter + " tries");
+                System.out.println("WOW YOU WON, it took you" + " " + guessCounter + " tries");
                 rematchOrNot();
             } else if(guess < correctNumber) {
                 System.out.println("Seems like your guess is too low, try a greater number");
@@ -93,7 +100,7 @@ public class TalSpelet {
     /**
      * Try catch, metoden kollar om vi får in den typen av värde vi vill ha vilket i detta fallet är det en int och -
      * om vi inte får det så kommer den säga till vilken typ vi vill ha och göra det tills användaren skriver in rätt typ
-     * @return den skickar tillbaka en int = input.nextInt(); för att kunna lösa i varje sitaution användaren får skriva så hen inte gör fel
+     * @return den skickar tillbaka en int = input.nextInt(); för att kunna lösa i varje sitaution användaren får skriva så hen inte gör fel genom att skriva en bokstav och det kraschar
      */
     public static int errorSearchingFromInput(){
        int inputFromPlayer;
@@ -101,7 +108,7 @@ public class TalSpelet {
        try{
            inputFromPlayer = input.nextInt();
        }catch (InputMismatchException e) {
-           System.out.println("THIS IS THE WRONG INPUT, TYPE AN INTEGER TO MOVE ON");
+           System.out.println("-----THIS IS THE WRONG INPUT, TYPE AN INTEGER TO MOVE ON-----");
            input.nextLine();
            return errorSearchingFromInput();
        }
