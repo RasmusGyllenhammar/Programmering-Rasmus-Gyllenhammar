@@ -4,12 +4,12 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TalSpelet {
-   static Scanner input = new Scanner(System.in);
-   protected static int limitedAmountOfGuesses; //Antal gissningar man har på sig
+    static Scanner input = new Scanner(System.in);
+    protected static int limitedAmountOfGuesses; //Antal gissningar man har på sig
 
-   public static void main(String[] args) {
+    public static void main(String[] args) {
 
-       chooseDifficulty();
+        chooseDifficulty();
 
     }
 
@@ -105,15 +105,15 @@ public class TalSpelet {
      * @return den skickar tillbaka en int = input.nextInt(); för att kunna lösa i varje sitaution användaren får skriva så hen inte gör fel genom att skriva en bokstav och det kraschar
      */
     public static int errorSearchingFromInput(){
-       int inputFromPlayer;
+        int inputFromPlayer;
 
-       try{
-           inputFromPlayer = input.nextInt();
-       }catch (InputMismatchException e) {
-           System.out.println("-----THIS IS THE WRONG INPUT, TYPE AN INTEGER TO MOVE ON-----");
-           input.nextLine();
-           return errorSearchingFromInput();
-       }
+        try{
+            inputFromPlayer = input.nextInt();
+        }catch (InputMismatchException e) {
+            System.out.println("-----THIS IS THE WRONG INPUT, TYPE AN INTEGER TO MOVE ON-----");
+            input.nextLine();
+            return errorSearchingFromInput();
+        }
 
         return inputFromPlayer;
     }
