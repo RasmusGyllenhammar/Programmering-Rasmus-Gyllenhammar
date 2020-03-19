@@ -90,10 +90,12 @@ public class TalSpelet {
         switch (playAgain) {
             case 1:
                 chooseDifficulty();
+                break;
 
 
             case 2:
                 System.out.println("Okay, dont play then :(");
+                break;
         }
     }
 
