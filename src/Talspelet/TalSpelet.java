@@ -57,7 +57,7 @@ public class TalSpelet {
         boolean win = false; //Detta är för att kunna veta när man har gissat rätt sen
 
         int guessCounter = 0;  //Håller koll på hur många gissningar man gör
-        int correctNumber = (int)(100 * Math.random()); // randomizer en int mellan intervallet 1-100
+        int correctNumber = (int)(100 + 1 * Math.random()); // randomizer en int mellan intervallet 1-100
 
         while(win == false) {
             int guess = errorSearchingFromInput();
@@ -82,6 +82,7 @@ public class TalSpelet {
 
     /**
      * Kollar på slutet av spelet om man vill köra igen eller inte. Om man vill köra igen så kommer anropa choosingDifficulty
+     * Annars kommer den avsluta applikationen
      */
     public static void rematchOrNot() {
         System.out.println("Do you want to play again? If so, press 1. If not press 2");
@@ -95,6 +96,7 @@ public class TalSpelet {
 
             case 2:
                 System.out.println("Okay, dont play then :(");
+                System.exit(0);
                 break;
         }
     }
