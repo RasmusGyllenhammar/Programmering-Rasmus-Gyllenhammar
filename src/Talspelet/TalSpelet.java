@@ -57,7 +57,7 @@ public class TalSpelet {
         boolean win = false; //Detta är för att kunna veta när man har gissat rätt sen
 
         int guessCounter = 0;  //Håller koll på hur många gissningar man gör
-        int correctNumber = (int)(100 + 1 * Math.random()); // randomizer en int mellan intervallet 1-100
+        int correctNumber = (int)((100 + 1) * Math.random()) ;   // randomizer en int mellan intervallet 1-100
 
         while(win == false) {
             int guess = errorSearchingFromInput();
