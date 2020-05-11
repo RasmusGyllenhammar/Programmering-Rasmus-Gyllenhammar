@@ -1,6 +1,7 @@
 package HangmanGame;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -12,6 +13,7 @@ public class HangmanTheGame {
     protected static int guessCounter = 0;
     protected static String makeRandomWord;
     protected static char[] wordProgress;
+  //  protected static char playerGuess;
 
 
     public static void main(String[] args) {
@@ -19,10 +21,10 @@ public class HangmanTheGame {
 
         chooseDifficulty();
         randomizeTheWord();
-       wordProgress = resetWordProgress();
+       wordProgress = resetWordProgress();// gör så att när man kallar på metoden i for loopen att den inte återställs varje gång.
         updateWordProgress();
 
-     
+
     }
 
     public static void greeting(){
@@ -102,13 +104,13 @@ public class HangmanTheGame {
     }
 
     public static void updateWordProgress(){
-        char playerGuess = _input.nextLine().toLowerCase().charAt(0);
-        System.out.println(playerGuess);
+        char playerguess = errorSearchFromInput();//ska ta in errorsearchfrom input
+
 
        for(int i = 0; i < wordProgress.length; i++){
-           if(makeRandomWord.charAt(i) == playerGuess){
-               wordProgress[i] = playerGuess; //återställde innan nör jag kallade på resetwordpgroess
-               System.out.println("hello");
+           if(makeRandomWord.charAt(i) == playerguess){
+               wordProgress[i] = playerguess; //återställde innan nör jag kallade på resetwordpgroessmetoden
+
            }
            System.out.println(wordProgress[i]);
 
@@ -119,11 +121,33 @@ public class HangmanTheGame {
     }
 
     public static char errorSearchFromInput(){
+        char input = _input.nextLine().charAt(0);
 
-        return 'd';
+        boolean checkIfCharacterIsInput = true;
+
+        while(checkIfCharacterIsInput){
+
+            if (Character.isLetter(input)){
+
+                return input;
+
+            }
+            else{
+
+                System.out.println("Wrong input - type a character to move on");
+                //ett meddelande för spelaren att det är ogiltig input
+                errorSearchFromInput();
+
+
+            }
+
+        }
+        return input;
     }
 
     public static void wrongGuess(){
+
+
 
     }
 
