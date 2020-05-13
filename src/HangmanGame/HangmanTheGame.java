@@ -1,7 +1,6 @@
 package HangmanGame;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -22,7 +21,10 @@ public class HangmanTheGame {
         chooseDifficulty();
         randomizeTheWord();
        wordProgress = resetWordProgress();// gör så att när man kallar på metoden i for loopen att den inte återställs varje gång.
-        updateWordProgress();
+        game();
+
+        //updateWordProgress();
+       // wrongGuess();
 
 
     }
@@ -89,7 +91,7 @@ public class HangmanTheGame {
 
     public static void rematchOrNot(){
        int playAgain = _input.nextInt();
-
+        System.out.println("Would you like to play again? Press 1 to play again or 2 to stop");
        switch (playAgain){
            case 1:
                playMultiplayer();
@@ -106,46 +108,56 @@ public class HangmanTheGame {
     public static void updateWordProgress(){
         char playerguess = errorSearchFromInput();//ska ta in errorsearchfrom input
 
+            for(int i = 0; i < wordProgress.length; i++){
+                if(makeRandomWord.charAt(i) == playerguess){
+                    wordProgress[i] = playerguess; //återställde innan nör jag kallade på resetwordpgroessmetoden
 
-       for(int i = 0; i < wordProgress.length; i++){
-           if(makeRandomWord.charAt(i) == playerguess){
-               wordProgress[i] = playerguess; //återställde innan nör jag kallade på resetwordpgroessmetoden
+                }
+                System.out.print(wordProgress[i]);
 
-           }
-           System.out.println(wordProgress[i]);
+            }
 
-       }
+
+
+
+
 
 
 
     }
 
     public static char errorSearchFromInput(){
-        char input = _input.nextLine().charAt(0);
+        char inputFromPlayer = _input.nextLine().toLowerCase().charAt(0);
 
-        boolean checkIfCharacterIsInput = true;
 
-        while(checkIfCharacterIsInput){
 
-            if (Character.isLetter(input)){
 
-                return input;
 
+            if (Character.isLetter(inputFromPlayer)){
+
+                return inputFromPlayer;
             }
             else{
-
                 System.out.println("Wrong input - type a character to move on");
-                //ett meddelande för spelaren att det är ogiltig input
                 errorSearchFromInput();
+
+
+
+
+        }
+        return inputFromPlayer;
+    }
+
+    public static void wrongGuess(){
+        for (int i = 0; i <wordProgress.length;i++){
+            if (makeRandomWord.charAt(i) != errorSearchFromInput()){
+                guessCounter++;
+                printHangmanPhase();
 
 
             }
 
         }
-        return input;
-    }
-
-    public static void wrongGuess(){
 
 
 
@@ -154,6 +166,10 @@ public class HangmanTheGame {
 
 
     public static boolean hasWon(char[] win){
+        for (int i = 0; i < win.length; i++){
+            if (win[i] == '_')
+                return false; // kollar om det finns några underscore och ifall det gör det har man inte vunnit, annars returnera true
+        }
 
         return true;
     }
@@ -162,73 +178,101 @@ public class HangmanTheGame {
 
         switch (guessCounter){
             case 1:
-                System.out.println("['''\\n\" +\n" +
-                        "                            \"  +---+\\n\" +\n" +
-                        "                            \"  |   |\\n\" +\n" +
-                        "                            \"      |\\n\" +\n" +
-                        "                            \"      |\\n\" +\n" +
-                        "                            \"      |\\n\" +\n" +
-                        "                            \"      |\\n\" +\n" +
-                        "                            \"=========''', '''");
+                System.out.print("  +---+\n" +
+                        "  |   |\n" +
+                        "      |\n" +
+                        "      |\n" +
+                        "      |\n" +
+                        "      |\n" +
+                        "=========''', '''");
+                System.out.println("You have 6 guesses left, COME ON");
                 break;
             case 2:
-                System.out.println("  +---+\\n\" +\n" +
-                        "                            \"  |   |\\n\" +\n" +
-                        "                            \"  O   |\\n\" +\n" +
-                        "                            \"      |\\n\" +\n" +
-                        "                            \"      |\\n\" +\n" +
-                        "                            \"      |\\n\" +\n" +
-                        "                            \"=========''', '''");
+                System.out.print("  +---+\n" +
+                        "  |   |\n" +
+                        "  O   |\n" +
+                        "      |\n" +
+                        "      |\n" +
+                        "      |\n" +
+                        "=========''', '''");
+                System.out.println("You have 5 guesses left, COME ON");
                 break;
             case 3:
-                System.out.println("  +---+\\n\" +\n" +
-                        "                            \"  |   |\\n\" +\n" +
-                        "                            \"  O   |\\n\" +\n" +
-                        "                            \"  |   |\\n\" +\n" +
-                        "                            \"      |\\n\" +\n" +
-                        "                            \"      |\\n\" +\n" +
-                        "                            \"=========''', '''");
+                System.out.print("  +---+\n" +
+                        "  |   |\n" +
+                        "  O   |\n" +
+                        "  |   |\n" +
+                        "      |\n" +
+                        "      |\n" +
+                        "=========''', '''");
+                System.out.println("You have 4 guesses left, COME ON");
                 break;
             case 4:
-                System.out.println("  +---+\\n\" +\n" +
-                        "                            \"  |   |\\n\" +\n" +
-                        "                            \"  O   |\\n\" +\n" +
-                        "                            \" /|   |\\n\" +\n" +
-                        "                            \"      |\\n\" +\n" +
-                        "                            \"      |\\n\" +\n" +
-                        "                            \"=========''', '''");
+                System.out.print("  +---+\n" +
+                        "  |   |\n" +
+                        "  O   |\n" +
+                        " /|   |\n" +
+                        "      |\n" +
+                        "      |\n" +
+                        "=========''', '''");
+                System.out.println("You have 3 guesses left, COME ON");
                 break;
             case 5:
-                System.out.println("  +---+\\n\" +\n" +
-                        "                            \"  |   |\\n\" +\n" +
-                        "                            \"  O   |\\n\" +\n" +
-                        "                            \" /|\\\\  |\\n\" +\n" +
-                        "                            \"      |\\n\" +\n" +
-                        "                            \"      |\\n\" +\n" +
-                        "                            \"=========''', '''");
+                System.out.print("  +---+\n" +
+                        "  |   |\n" +
+                        "  O   |\n" +
+                        " /|\\  |\n" +
+                        "      |\n" +
+                        "      |\n" +
+                        "=========''', '''");
+                System.out.println("You have 2 guesses left, COME ON");
                 break;
             case 6:
-                System.out.println(" +---+\\n\" +\n" +
-                        "                            \"  |   |\\n\" +\n" +
-                        "                            \"  O   |\\n\" +\n" +
-                        "                            \" /|\\\\  |\\n\" +\n" +
-                        "                            \" /    |\\n\" +\n" +
-                        "                            \"      |\\n\" +\n" +
-                        "                            \"=========''', '''");
+                System.out.print(" +---+\n" +
+                        "  |   |\n" +
+                        "  O   |\n" +
+                        " /|\\  |\n" +
+                        " /    |\n" +
+                        "      |\n" +
+                        "=========''', '''");
+                System.out.println("You have 1 guesses left, COME ON");
                 break;
             case 7:
-                System.out.println("  +---+\\n\" +\n" +
-                        "                            \"  |   |\\n\" +\n" +
-                        "                            \"  O   |\\n\" +\n" +
-                        "                            \" /|\\\\  |\\n\" +\n" +
-                        "                            \" / \\\\  |\\n\" +\n" +
-                        "                            \"      |\\n\" +\n" +
-                        "                            \"=========''']");
+                System.out.print("  +---+\n" +
+                        "  |   |\n" +
+                        "  O   |\n" +
+                        " /|\\  |\n" +
+                        " / \\  |\n" +
+                        "      |\n" +
+                        "=========''']");
+                System.out.println("sorry, you lost unfortunately");
+                System.out.println("The word was:" + " " + makeRandomWord);
+                break;
+
         }
 
     }
 
     public static void game(){
 
-    }
-}
+        boolean youWon = false;
+
+        while (!youWon && guessCounter <= amountOfGuesses){
+
+                updateWordProgress();
+                if (hasWon(wordProgress)){
+                    youWon = true;
+                    System.out.println(", that was the right word, you have won! Congrats!!");
+                }
+
+
+            }
+
+
+            }
+
+        }
+
+
+
+
