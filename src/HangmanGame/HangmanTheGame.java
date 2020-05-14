@@ -12,24 +12,33 @@ public class HangmanTheGame {
     protected static int guessCounter = 0;
     protected static String makeRandomWord;
     protected static char[] wordProgress;
+    protected static ArrayList<Character> playerGuessList = new ArrayList<Character>();
 
 
 
     public static void main(String[] args) {
         greeting();
+        /**
+         * Kollar ifall
+         */
+        while(true){
+            playMultiplayer();
+            System.out.println("would you like to play again? press y to play again or press which ever character to stop");
+            char yes = errorSearchFromInput();
+            if (yes == 'y'){
+                continue;
+            }
+            break;
+        }
 
-        chooseDifficulty();
-        randomizeTheWord();
-        wordProgress = resetWordProgress();// gör så att när man kallar på metoden i for loopen att den inte återställs varje gång.
-        game();
 
-
-        //updateWordProgress();
-        // wrongGuess();
 
 
     }
 
+    /**
+     * Välkommnar spelaren och förklarar hur spelet går till
+     */
     public static void greeting() {
         System.out.println("hello, and welcome to the game Hangman! You will have to guess the right word; letter by letter! You can only guess wrong 7 times and after that you will lose \n " + "You could also play with a friend, where one of you choose a word from a list and the other try to guess it");
     }
@@ -39,21 +48,30 @@ public class HangmanTheGame {
         System.out.println("Would you like to play with a friend? if so press 'y' or press 'f' to play ALONE");
 
         char playWithFriend = errorSearchFromInput();
+
+       guessCounter = 0; //nollställer
+        playerGuessList.clear(); //nollställer listan med inputen
         switch (playWithFriend) {
             case 'y':
-                System.out.println("Ah, play multiplayer");
+                System.out.println("Ah, you want to play multiplayer");
+                chooseWord();
+                randomizeTheWord();
+                game();
                 break;
 
 
             case 'f':
                 System.out.println("OK, play alone");
+                chooseDifficulty();
+                randomizeTheWord();
+                game();
                 break;
 
         }
 
     }
     public static void chooseWord(){
-        System.out.println("Choose a word you would like your friend to guess on");
+        System.out.println("Choose a word you would like your friend to guess on. Press 'y' if u want the word: multiplayer \n" + "or press 'f' if you want the word: alone");
 
         char chooseWord = errorSearchFromInput();
 
@@ -63,12 +81,14 @@ public class HangmanTheGame {
                 break;
 
             case 'f':
+                unknownWordsToGuessOn = new String[]{"alone"};
+                break;
         }
     }
 
     public static void chooseDifficulty() {
 
-        System.out.println("what difficulty would you like to play? Press y(complex words), or f(common words)");
+        System.out.println("what difficulty would you like to play? Press 'y'(complex words), or 'f'(common words)");
 
         char difficulty = errorSearchFromInput();
 
@@ -76,7 +96,7 @@ public class HangmanTheGame {
         switch (difficulty) {
             case 'y':
                 System.out.println("ah, ok you want more complex words huh? Good luck");
-                unknownWordsToGuessOn = new String[]{"southkorea", "earthflaxxxxxxxxxxxxxxxxxxxxxxxxxx", "nti"};
+                unknownWordsToGuessOn = new String[]{"southkorea", "earthflax", "nti"};
                 break;
 
             case 'f':
@@ -108,21 +128,6 @@ public class HangmanTheGame {
 
     }
 
-    public static void rematchOrNot() {
-        int playAgain = _input.nextInt();
-        System.out.println("Would you like to play again? Press 1 to play again or 2 to stop");
-        switch (playAgain) {
-            case 1:
-                playMultiplayer();
-                break;
-
-            case 2:
-                System.out.println("dont play then, goodbye");
-                System.exit(0);
-                break;
-        }
-
-    }
 
     public static void updateWordProgress(char playerguess) {
 
@@ -257,18 +262,26 @@ public class HangmanTheGame {
     public static void game() {
 
         boolean youWon = false;
-
-        while (!youWon && guessCounter <= amountOfGuesses) {
-            char playerguess = errorSearchFromInput();//ska ta in errorsearchfrom input
+        wordProgress = resetWordProgress();// gör så att när man kallar på metoden i for loopen att den inte återställs varje gång
+        while (!youWon && guessCounter < amountOfGuesses) {
+            char playerguess = errorSearchFromInput(); //ska ta in errorsearchfrom input
             updateWordProgress(playerguess); // gissar och kollar ifall det stämmer
+            playerGuessList.add(playerguess);
+
             if (hasWon(wordProgress)) { // kollar om man har vunnit
                 youWon = true;
                 System.out.println("that was the right word, you have won! Congrats!!");
+                return;
 
             }else if(!makeRandomWord.contains(Character.toString(playerguess))){ // inte gissat rätt så kallar den på wrongGuess
+                playerGuessList.add(playerguess);
                 wrongGuess();
 
 
+
+            }
+            if (playerGuessList.contains(playerguess)){
+                System.out.println("you have already entered this character");
             }
 
 
@@ -279,6 +292,7 @@ public class HangmanTheGame {
 
 
     }
+
 
 }
 
