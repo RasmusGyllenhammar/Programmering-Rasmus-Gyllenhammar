@@ -1,5 +1,6 @@
 package HangmanGame;
 
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -12,26 +13,22 @@ public class HangmanTheGame {
     protected static int guessCounter = 0;
     protected static String makeRandomWord;
     protected static char[] wordProgress;
-    protected static ArrayList<Character> playerGuessList = new ArrayList<Character>();
-
 
 
     public static void main(String[] args) {
         greeting();
         /**
-         * Kollar ifall
+         * Kollar ifall man vill köra igen tills i slutet om man trycker på valfri bokstav så stängs det av. Eller om man trycker på y så fortsätter det.
          */
-        while(true){
+        while (true) {
             playMultiplayer();
-            System.out.println("would you like to play again? press y to play again or press which ever character to stop");
+            System.out.println("would you like to play again? press y to play again or press any other character to stop");
             char yes = errorSearchFromInput();
-            if (yes == 'y'){
+            if (yes == 'y') {
                 continue;
             }
             break;
         }
-
-
 
 
     }
@@ -43,19 +40,22 @@ public class HangmanTheGame {
         System.out.println("hello, and welcome to the game Hangman! You will have to guess the right word; letter by letter! You can only guess wrong 7 times and after that you will lose \n " + "You could also play with a friend, where one of you choose a word from a list and the other try to guess it");
     }
 
+    /**
+     * Har en switch case och utifrån sitt svar så kollar den ifall man vill spela det eller inte
+     */
     public static void playMultiplayer() {
 
         System.out.println("Would you like to play with a friend? if so press 'y' or press 'f' to play ALONE");
 
         char playWithFriend = errorSearchFromInput();
 
-       guessCounter = 0; //nollställer
-        playerGuessList.clear(); //nollställer listan med inputen
+        guessCounter = 0; //nollställer
+
         switch (playWithFriend) {
             case 'y':
                 System.out.println("Ah, you want to play multiplayer");
                 chooseWord();
-                randomizeTheWord();
+                randomizeTheWord(); // har den här för den gör om min array till en String och slumpar bara på ett ord
                 game();
                 break;
 
@@ -70,12 +70,16 @@ public class HangmanTheGame {
         }
 
     }
-    public static void chooseWord(){
+
+    /**
+     * Om man nu valt att spela multiplayer så får man välja vilket ord som sin kompis ska gissa på med en switch case
+     */
+    public static void chooseWord() {
         System.out.println("Choose a word you would like your friend to guess on. Press 'y' if u want the word: multiplayer \n" + "or press 'f' if you want the word: alone");
 
         char chooseWord = errorSearchFromInput();
 
-        switch(chooseWord) {
+        switch (chooseWord) {
             case 'y':
                 unknownWordsToGuessOn = new String[]{"multiplayer"};
                 break;
@@ -86,6 +90,9 @@ public class HangmanTheGame {
         }
     }
 
+    /**
+     * Om man valt att spela själv så får man välja vilken svårigshetsgrad man vill köra på dvs komplexa eller mer vanliga ord med en switch case
+     */
     public static void chooseDifficulty() {
 
         System.out.println("what difficulty would you like to play? Press 'y'(complex words), or 'f'(common words)");
@@ -107,12 +114,20 @@ public class HangmanTheGame {
 
     }
 
+    /**
+     * Här slumpas ordet och gör den till en String
+     */
     public static void randomizeTheWord() {
         makeRandomWord = unknownWordsToGuessOn[randomize.nextInt(unknownWordsToGuessOn.length)];
 
 
     }
 
+    /**
+     * Tar in det slumpade ordet och gör om den till en char[] och i en for-loop gör om den till '_' och skriver ut det
+     *
+     * @return skickar tillbaka char[]
+     */
     public static char[] resetWordProgress() {
 
         char[] wordReplacedByUnderScore = new char[makeRandomWord.length()];
@@ -120,7 +135,7 @@ public class HangmanTheGame {
         for (int i = 0; i < wordReplacedByUnderScore.length; i++) {
             wordReplacedByUnderScore[i] = '_';
         }
-        System.out.println(makeRandomWord);
+        // System.out.println(makeRandomWord);
         ; // kollar det slumpade ordet innan det görs om till understräck
         System.out.println(String.copyValueOf(wordReplacedByUnderScore));
         ; //Skriver ut det slumpade ordet i "_"
@@ -128,7 +143,11 @@ public class HangmanTheGame {
 
     }
 
-
+    /**
+     * Här kollar vi om ens gissningar stämmer och isåfall ersätter det med den bokstaven man gissade på, och skriver ut hur långt man har kommmit
+     *
+     * @param playerguess, detta är för inputen sedan i game-metoden
+     */
     public static void updateWordProgress(char playerguess) {
 
 
@@ -145,6 +164,11 @@ public class HangmanTheGame {
 
     }
 
+    /**
+     * min felsökning bland inputen, använder isLetter och kollar ifall ens input är en char om den inte är det så kallar den på sig själv igen tills man skrivit rätt, en recursiv metod
+     *
+     * @return skickar tillbaka antingen inputen om den var giltig eller sig själv och får då börja om
+     */
     public static char errorSearchFromInput() {
         char inputFromPlayer = _input.nextLine().toLowerCase().charAt(0);
 
@@ -153,33 +177,41 @@ public class HangmanTheGame {
             return inputFromPlayer;
         } else {
             System.out.println("Wrong input - type a character to move on");
-           return errorSearchFromInput();
+            return errorSearchFromInput();
 
 
         }
 
     }
 
+    /**
+     * denna metoden ökar guessCounter och kallar på bilderna på hangman, Sedan kallar jag på denna metoden när man gissat fel, alltså när inputen inte finns i ordet
+     */
     public static void wrongGuess() {
         guessCounter++;
         printHangmanPhase();
 
     }
 
-    /**Kollar om det finns några understreck kvar i en array och ifall det finns så har man inte vunnit
+    /**
+     * Kollar om det finns några understreck kvar i en array och ifall det finns så har man inte vunnit
      *
      * @param win Vi har en array som jämför med understräck, en plats för wordProgress längre ner
-     * @return skickar tillbaka true om det inte finns några understreck
+     * @return skickar tillbaka true om det inte finns några understreck annars returnerar den false och man har inte vunnit
      */
     public static boolean hasWon(char[] win) {
         for (int i = 0; i < win.length; i++) {
             if (win[i] == '_')
-                return false; // kollar om det finns några underscore och ifall det gör det har man inte vunnit, annars returnera true
+                return false;
         }
 
         return true;
     }
 
+    /**
+     * Här är bilderna och en text som säger hur många gissningar man har kvar i samband med bilderna och på sista så visar man vilket ord det var om man nu inte vann
+     * Den är baserad på guessCounter och gubben ökar i samband med den
+     */
     public static void printHangmanPhase() {
 
         switch (guessCounter) {
@@ -251,7 +283,7 @@ public class HangmanTheGame {
                         " / \\  |\n" +
                         "      |\n" +
                         "=========''']");
-                System.out.println("THAT WAS NOT IN THE WORD, COME ON and sorry, you lost unfortunately");
+                System.out.println("THAT WAS NOT IN THE WORD and sorry, you lost unfortunately");
                 System.out.println("The word was:" + " " + makeRandomWord);
                 break;
 
@@ -259,36 +291,33 @@ public class HangmanTheGame {
 
     }
 
+    /**
+     * Här är självaste spelet och kallar på metoderna och en while-loop som går tills man antingen har förlorat(inga gissnignar kvar) eller gissat rätt.
+     * Sedan har vi en ArrayList med och kollar ifall gissningen redan blev gissad på.
+     */
     public static void game() {
 
         boolean youWon = false;
-        wordProgress = resetWordProgress();// gör så att när man kallar på metoden i for loopen att den inte återställs varje gång
+        wordProgress = resetWordProgress();// gör så att när man kallar på metoden i for loopen(i sig) att den inte återställs varje gång
         while (!youWon && guessCounter < amountOfGuesses) {
             char playerguess = errorSearchFromInput(); //ska ta in errorsearchfrom input
+
             updateWordProgress(playerguess); // gissar och kollar ifall det stämmer
-            playerGuessList.add(playerguess);
+
 
             if (hasWon(wordProgress)) { // kollar om man har vunnit
                 youWon = true;
                 System.out.println("that was the right word, you have won! Congrats!!");
-                return;
 
-            }else if(!makeRandomWord.contains(Character.toString(playerguess))){ // inte gissat rätt så kallar den på wrongGuess
-                playerGuessList.add(playerguess);
+
+            } else if (!makeRandomWord.contains(Character.toString(playerguess))) { // inte gissat rätt så kallar den på wrongGuess och hangman kommer
                 wrongGuess();
 
 
-
             }
-            if (playerGuessList.contains(playerguess)){
-                System.out.println("you have already entered this character");
-            }
-
-
 
 
         }
-
 
 
     }
