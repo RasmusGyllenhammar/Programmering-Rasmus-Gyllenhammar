@@ -1,7 +1,7 @@
 package HangmanGame;
 
 
-import java.util.ArrayList;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -66,6 +66,10 @@ public class HangmanTheGame {
                 randomizeTheWord();
                 game();
                 break;
+            default:
+                System.out.println("wrong char - type y or f");
+                playMultiplayer();
+                break;
 
         }
 
@@ -86,6 +90,10 @@ public class HangmanTheGame {
 
             case 'f':
                 unknownWordsToGuessOn = new String[]{"alone"};
+                break;
+            default:
+                System.out.println("wrong char - type either y or f");
+                chooseWord();
                 break;
         }
     }
@@ -109,6 +117,10 @@ public class HangmanTheGame {
             case 'f':
                 System.out.println("ah, ok you want more COMMON WORDS, GOOD LUCK");
                 unknownWordsToGuessOn = new String[]{"goodmorning", "hello", "kebab"};
+                break;
+            default:
+                System.out.println("wrong char - type y or f");
+                chooseDifficulty();
                 break;
         }
 
@@ -135,8 +147,7 @@ public class HangmanTheGame {
         for (int i = 0; i < wordReplacedByUnderScore.length; i++) {
             wordReplacedByUnderScore[i] = '_';
         }
-        // System.out.println(makeRandomWord);
-        ; // kollar det slumpade ordet innan det görs om till understräck
+        // System.out.println(makeRandomWord);  kollar det slumpade ordet innan det görs om till understräck
         System.out.println(String.copyValueOf(wordReplacedByUnderScore));
         ; //Skriver ut det slumpade ordet i "_"
         return wordReplacedByUnderScore;
