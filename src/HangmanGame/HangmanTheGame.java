@@ -116,7 +116,7 @@ public class HangmanTheGame {
 
             case 'f':
                 System.out.println("ah, ok you want more COMMON WORDS, GOOD LUCK");
-                unknownWordsToGuessOn = new String[]{"goodmorning", "hello", "kebab"};
+                unknownWordsToGuessOn = new String[]{"goodmorning", "shawarma", "kebab"};
                 break;
             default:
                 System.out.println("wrong char - type y or f");
