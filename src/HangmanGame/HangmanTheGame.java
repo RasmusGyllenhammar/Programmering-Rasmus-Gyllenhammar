@@ -1,7 +1,6 @@
 package HangmanGame;
 
 
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -42,6 +41,7 @@ public class HangmanTheGame {
 
     /**
      * Har en switch case och utifrån sitt svar så kollar den ifall man vill spela det eller inte
+     * sedan finns det ett default värde som körs om man inte har skrivit in y eller f och då körs metoden om tills man svarat rätt
      */
     public static void playMultiplayer() {
 
@@ -77,6 +77,7 @@ public class HangmanTheGame {
 
     /**
      * Om man nu valt att spela multiplayer så får man välja vilket ord som sin kompis ska gissa på med en switch case
+     * sedan finns det ett default värde som körs om man inte har skrivit in y eller f och då körs metoden om tills man svarat rätt
      */
     public static void chooseWord() {
         System.out.println("Choose a word you would like your friend to guess on. Press 'y' if u want the word: multiplayer \n" + "or press 'f' if you want the word: alone");
@@ -100,6 +101,7 @@ public class HangmanTheGame {
 
     /**
      * Om man valt att spela själv så får man välja vilken svårigshetsgrad man vill köra på dvs komplexa eller mer vanliga ord med en switch case
+     * sedan finns det ett default värde som körs om man inte har skrivit in y eller f och då körs metoden om tills man svarat rätt
      */
     public static void chooseDifficulty() {
 
@@ -303,8 +305,8 @@ public class HangmanTheGame {
     }
 
     /**
-     * Här är självaste spelet och kallar på metoderna och en while-loop som går tills man antingen har förlorat(inga gissnignar kvar) eller gissat rätt.
-     * Sedan har vi en ArrayList med och kollar ifall gissningen redan blev gissad på.
+     * Här är självaste spelet och kallar på metoderna och en while-loop som går tills man antingen har förlorat(inga gissnignar kvar) eller gissat rätt på ordet.
+     * if-sats som kollar ifall man har vunnit eller gissat fel
      */
     public static void game() {
 
